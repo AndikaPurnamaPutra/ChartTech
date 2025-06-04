@@ -29,7 +29,13 @@ body {
 
 nav {
   padding-block: 16px;
-  position: relative;
+  position: fixed;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+nav.scrolled {
+  background-color: white; 
 }
 
 .nav {
@@ -94,6 +100,7 @@ nav {
   padding: 10px 32px;
   border-radius: 31px;
   color: var(--black);
+  font-size: 16px;
   line-height: 150%;
   letter-spacing: 1.3px;
 }
@@ -188,8 +195,12 @@ nav {
 
 /* header */
 .header {
-  padding-block: 100px;
+  padding-bottom: 100px;
   position: relative;
+  overflow: hidden;
+  padding-top: 150px;
+  display: flex;
+  justify-content: center;
 }
 
 .header-wrap {
@@ -250,16 +261,34 @@ nav {
 }
 
 #lottie-bg {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; 
-  z-index: 0;
-  object-fit: cover;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2560px;
+    height: 900px;
+    pointer-events: none;
+    z-index: 0;
+    object-fit: cover;
+}
+
+#lottie-bg svg{
+	width: 2560px;
+	height: 900px;
+}
+
+nav{
+	position: fixed;
+	width: 100%;
+    z-index: 10;
 }
 
 /* RESPONSIVE */
+
+@media only screen and (max-width: 1220px) {
+  .container {
+    padding: 0 80px;
+  }
+}
 
 @media only screen and (max-width: 991px) {
   .container {
@@ -279,16 +308,58 @@ nav {
   }
 
   .nav-menu {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
     background-color: var(--white);
     padding: 16px 0;
-    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
     z-index: 10;
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .label {
+    font-size: 14px; 
+    padding: 8px 24px;
+  }
+
+  .heading-h1 {
+    font-size: 48px;
+    line-height: 110%;
+  }
+
+  .desc {
+    font-size: 16px;
+  }
+
+  .btn-primary {
+    padding: 4px 6px 4px 20px;
+    background-color: var(--black);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    font-weight: 700;
+    color: var(--white);
+    border-radius: 32px;
+  }
+
+  .btn-primary-ic {
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+  }
+
+  .header-bottom {
+    display: none;
   }
 } 

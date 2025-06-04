@@ -31,7 +31,11 @@
           <a href="#" class="btn-outline"
             >Learn Now <img src="./image/ic__arrow.svg" alt=""
           /></a>
-          <a href="#" class="nav-humberger"
+          <a
+            href="javascript:void(0);"
+            href="#"
+            class="nav-humberger"
+            onclick="toggleMenu()"
             ><img src="./image/menu.svg" alt=""
           /></a>
         </div>
@@ -132,34 +136,19 @@
         path: './image/Header_Wide.json',
       });
 
-      function scaleAnimation() {
-        var container = document.getElementById('lottie-bg');
+      window.onscroll = function () {
+        var navbar = document.querySelector('nav');
+        if (window.scrollY > 0) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      };
 
-        // Dapatkan ukuran asli animasi
-        var animationWidth = animation.width;
-        var animationHeight = animation.height;
-
-        // Dapatkan ukuran container
-        var containerWidth = container.offsetWidth;
-        var containerHeight = container.offsetHeight;
-
-        // Hitung faktor skala berdasarkan lebar dan tinggi container
-        var scaleX = containerWidth / animationWidth;
-        var scaleY = containerHeight / animationHeight;
-
-        // Pilih faktor skala terbesar untuk mengisi container sepenuhnya
-        var scaleFactor = Math.max(scaleX, scaleY);
-
-        // Terapkan transformasi skala pada animasi
-        container.style.transform = 'scale(' + scaleFactor + ')';
-        container.style.transformOrigin = 'top left'; // Agar animasi tetap terpasang dengan rapi
+      function toggleMenu() {
+        var menu = document.querySelector('.nav-menu');
+        menu.classList.toggle('active');
       }
-
-      // Panggil scaleAnimation saat DOM selesai dimuat
-      animation.addEventListener('DOMLoaded', scaleAnimation);
-
-      // Panggil scaleAnimation setiap kali ukuran window/container berubah
-      window.addEventListener('resize', scaleAnimation);
     </script>
   </body>
 </html>
