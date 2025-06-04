@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 body {
@@ -301,6 +302,8 @@ nav{
 
   .nav .nav-menu .btn-outline {
     display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
   }
 
   .nav .btn-outline {
@@ -314,9 +317,9 @@ nav{
     left: 0;
     right: 0;
     background-color: var(--white);
-    padding: 16px 0;
+    padding: 54px 16px;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 16px;
     z-index: 10;
     overflow: hidden;
