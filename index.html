@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Chart.tech</title>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <div class="nav">
+          <div class="nav-brand">
+            <img src="./image/icon_logo.png" alt="Chart.tech Logo" />
+          </div>
+          <div class="nav-menu">
+            <a href="#" class="nav-link">Home</a
+            ><a href="#" class="nav-link">Services</a
+            ><a href="#" class="nav-link">Blog</a
+            ><a href="#" class="nav-link">Contact Us</a>
+            <a href="#" class="btn-outline"
+              >Learn Now <img src="./image/ic__arrow.svg" alt=""
+            /></a>
+          </div>
+          <a href="#" class="btn-outline"
+            >Learn Now <img src="./image/ic__arrow.svg" alt=""
+          /></a>
+          <a href="#" class="nav-humberger"
+            ><img src="./image/menu.svg" alt=""
+          /></a>
+        </div>
+      </div>
+    </nav>
+    <section class="header">
+      <div id="lottie-bg"></div>
+      <div class="container">
+        <div class="header-wrap">
+          <div class="header-top">
+            <div class="header-top-text">
+              <div class="wrap-subtext">
+                <span class="label">#1 BEST TRADING COURSE</span>
+                <h1 class="heading-h1">Chart smarter. Trade better!</h1>
+              </div>
+              <p class="desc">
+                Dictum fusce ut placerat orci nulla pellentesque. Purus ut
+                faucibus pulvinar elementum. Libero justo laoreet sit amet
+                cursus sit amet dictum sit
+              </p>
+            </div>
+            <a class="btn-primary" href="#">
+              <span>Get Free Trial</span>
+              <img
+                class="btn-primary-ic"
+                src="./image/ic__arrow.svg"
+                alt="Arrow Icon"
+              />
+            </a>
+          </div>
+          <div class="header-bottom">
+            <div class="wrap-persons">
+              <img
+                class="ic-person"
+                src="./image/ic__profile.png"
+                alt="Person 1"
+              />
+              <img
+                class="ic-person"
+                src="./image/ic__profile2.png"
+                alt="Person 2"
+              />
+              <img
+                class="ic-person"
+                src="./image/ic__profile3.png"
+                alt="Person 3"
+              />
+              <img
+                class="ic-person"
+                src="./image/ic__profile4.png"
+                alt="Person 4"
+              />
+            </div>
+            <div class="wrap-star">
+              <img
+                class="ic-star"
+                src="./image/ic__star.svg"
+                alt="Star Rating"
+              />
+              <img
+                class="ic-star"
+                src="./image/ic__star.svg"
+                alt="Star Rating"
+              />
+              <img
+                class="ic-star"
+                src="./image/ic__star.svg"
+                alt="Star Rating"
+              />
+              <img
+                class="ic-star"
+                src="./image/ic__star.svg"
+                alt="Star Rating"
+              />
+              <img
+                class="ic-star"
+                src="./image/ic__star.svg"
+                alt="Star Rating"
+              />
+            </div>
+            <p class="desc">
+              Über <span>1.013 Trader</span> sind schon dabei – weil chart.tech
+              der beste Ort ist, um Traden richtig zu lernen.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
+    <script>
+      var animation = lottie.loadAnimation({
+        container: document.getElementById('lottie-bg'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: './image/Header_Wide.json',
+      });
+
+      function scaleAnimation() {
+        var container = document.getElementById('lottie-bg');
+
+        // Dapatkan ukuran asli animasi
+        var animationWidth = animation.width;
+        var animationHeight = animation.height;
+
+        // Dapatkan ukuran container
+        var containerWidth = container.offsetWidth;
+        var containerHeight = container.offsetHeight;
+
+        // Hitung faktor skala berdasarkan lebar dan tinggi container
+        var scaleX = containerWidth / animationWidth;
+        var scaleY = containerHeight / animationHeight;
+
+        // Pilih faktor skala terbesar untuk mengisi container sepenuhnya
+        var scaleFactor = Math.max(scaleX, scaleY);
+
+        // Terapkan transformasi skala pada animasi
+        container.style.transform = 'scale(' + scaleFactor + ')';
+        container.style.transformOrigin = 'top left'; // Agar animasi tetap terpasang dengan rapi
+      }
+
+      // Panggil scaleAnimation saat DOM selesai dimuat
+      animation.addEventListener('DOMLoaded', scaleAnimation);
+
+      // Panggil scaleAnimation setiap kali ukuran window/container berubah
+      window.addEventListener('resize', scaleAnimation);
+    </script>
+  </body>
+</html>
